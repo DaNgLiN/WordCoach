@@ -67,6 +67,9 @@ function searching() {
                     }
                 }
             }
+            else{
+                result3 ="have no synonyms"
+            }
 
             document.getElementById("demo").innerHTML = `<span>` + result + `</span>Meaning:-<span>` + result2 + `</span>Synonyms:-<span>` + result3 + `</span>`;
 
