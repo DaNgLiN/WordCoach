@@ -6,10 +6,7 @@ input.addEventListener("keyup", function (event) {
 });
 
 function searching() {
-    // console.log('what the fuck yar  ')
-    // var value =window.location="https://googledictionaryapi.eu-gb.mybluemix.net/?define="+ encodeURIComponent(document.getElementById("p").value);
-
-    // console.log(value)
+   
 
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
