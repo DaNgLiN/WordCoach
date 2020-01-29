@@ -7,7 +7,10 @@ body {
   * {
     box-sizing: border-box;
   }
-  
+  h1{
+    color:green;
+    font-size:20px;
+  }
  input[type=text] {
     padding: 10px;
     font-size: 17px;
@@ -16,6 +19,7 @@ body {
     width: 80%;
     background: black;
     color:green;
+    
   }
   
 button {
