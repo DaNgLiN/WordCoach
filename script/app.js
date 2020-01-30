@@ -64,6 +64,18 @@ function searching() {
                     }
                 }
             }
+            else if (obj.meaning.hasOwnProperty('transitive')) {
+                if (obj.meaning.transitive[0].hasOwnProperty('synonyms')) {
+                    for (var i in obj.meaning.transitive[0].synonyms) {
+                        if (i >= 0) {
+                            result3 += `
+								<ul>
+									<li>`+ obj.meaning.transitive[0].synonyms[i] + `</li>
+								</ul>`
+                        }
+                    }
+                }
+            }
             else{
                 result3 ="have no synonyms"
             }
