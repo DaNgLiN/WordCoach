@@ -12,8 +12,10 @@ function searching() {
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             var obj = JSON.parse(this.responseText)[0];
+            console.log(obj)
             //document.getElementById("demo").innerHTML="Loading....!!!";
-            document.getElementById("demo").style.display = "block"
+            document.getElementById("demo").style.display = "block";
+            if(obj.hasOwnProperty('phonetic')&&obj.hasOwnProperty('origin')){
             var result = `<table>
 					<tr><td>Word:-</td>
 						<td>`+ obj.word + `</td>
@@ -82,10 +84,28 @@ function searching() {
 
             document.getElementById("demo").innerHTML = `<span>` + result + `</span>Meaning:-<span>` + result2 + `</span>Synonyms:-<span>` + result3 + `</span>`;
 
-
+        }
+        else{
+            swal({
+                title: "Invialid input!",
+                text: "Check your spelling",
+                icon: "error",
+                button: "okay",
+              });
 
         }
+    }
     };
     xhttp.open("GET", "https://googledictionaryapi.eu-gb.mybluemix.net/?define=" + query.value + "&lang=en", true);
+    xhttp.onprogress=function() {
+        document.getElementById("demo").innerHTML = 'Loading.....! ';
+      };
+    xhttp.onload =function(){
+    if(xhttp.status===404){
+        
+        swal(xhttp.statusText+xhttp.status,"","warning");
+        
+    }
+}
     xhttp.send();
 }
