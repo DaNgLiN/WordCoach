@@ -79,31 +79,30 @@ function searching() {
                 }
             }
             else{
-                result3 ="have no synonyms"
+                result3 =""
             }
 
             document.getElementById("demo").innerHTML = `<span>` + result + `</span>Meaning:-<span>` + result2 + `</span>Synonyms:-<span>` + result3 + `</span>`;
 
         }
         else{
+            document.getElementById("demo").style.display="none";
             swal({
                 title: "Invialid input!",
                 text: "Check your spelling",
                 icon: "error",
                 button: "okay",
               });
-
+              document.getElementById("query").value="";
         }
     }
     };
     xhttp.open("GET", "https://googledictionaryapi.eu-gb.mybluemix.net/?define=" + query.value + "&lang=en", true);
-    xhttp.onprogress=function() {
-        document.getElementById("demo").innerHTML = 'Loading.....! ';
-      };
     xhttp.onload =function(){
     if(xhttp.status===404){
         
         swal(xhttp.statusText+xhttp.status,"","warning");
+        document.getElementById("query").value="";
         
     }
 }
