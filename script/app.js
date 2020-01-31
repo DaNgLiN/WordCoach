@@ -6,13 +6,13 @@ input.addEventListener("keyup", function (event) {
 });
 
 function searching() {
-   
+   savetext();
 
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             var obj = JSON.parse(this.responseText)[0];
-            console.log(obj)
+            //console.log(obj)
             //document.getElementById("demo").innerHTML="Loading....!!!";
             document.getElementById("demo").style.display = "block";
             if(obj.hasOwnProperty('phonetic')&&obj.hasOwnProperty('origin')){
@@ -107,4 +107,8 @@ function searching() {
     }
 }
     xhttp.send();
+}
+
+function savetext(){
+console.log('input save function on construction')
 }
